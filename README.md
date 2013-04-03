@@ -53,7 +53,9 @@ Use **spaces only**, with **2 spaces** per indentation level. Never mix tabs and
 <a name="maximum_line_length"/>
 ### Maximum Line Length
 
-Limit all lines to a maximum of 79 characters.
+~~Limit all lines to a maximum of 79 characters.~~
+
+No Line-Length Limitations for Valiton
 
 <a name="blank_lines"/>
 ### Blank Lines
@@ -452,6 +454,24 @@ console.log args... # Yes
 
 (a, b, c, rest...) -> # Yes
 ```
+
+## Nested Callbacks
+
+Unnest Callbacks when it improves readability:
+
+
+```coffeescript
+# Yes
+someFunc = ->
+anotherFunc = ->
+doit "param1", someFunc, anotherFunc
+
+# No
+doit "param1", 
+  () ->, 
+  () ->
+```
+
 
 [coffeescript]: http://jashkenas.github.com/coffee-script/
 [coffeescript-issue-425]: https://github.com/jashkenas/coffee-script/issues/425
